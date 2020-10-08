@@ -39,17 +39,19 @@ function focusInForm() {
 
 function createAlertMessage(message, imcValue) {
     const showResult = document.getElementById('showResult');
+
     paragraph = document.createElement('p');
+    paragraph.textContent = message;
+    paragraph.innerHTML += '<p><a class="btn btn-success p-2 ml-0 mt-3" href="https://www.unimedfortaleza.com.br/blog/cuidar-de-voce/como-calcular-imc" target="_blank">Mais informações <i class="fas fa-external-link-alt"></i></a></p>';
+    paragraph.classList.add('lead', 'alert', 'alert-info', 'mt-4');
+
     h2 = document.createElement('h2');
+    h2.textContent = `Seu IMC é: ${replaceDotByComma(imcValue)}`;
+    h2.classList.add('text-center');
 
     showResult.textContent = '';
-
     showResult.appendChild(h2);
     showResult.appendChild(paragraph);
-
-    h2.textContent = `Seu IMC é: ${replaceDotByComma(imcValue)}`;
-    paragraph.textContent = message;
-    paragraph.classList.add('lead', 'alert', 'alert-info');
 }
 
 function resetInputs() {
